@@ -31,7 +31,9 @@ public class FragmentScreenTwo extends Fragment {
         binding.ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                Navigation.findNavController(view).navigate(R.id.action_second_fragment_to_first_fragment);
+                Bundle bundle = new Bundle();
+                bundle.putFloat("rating2",  binding.ratingBar.getRating());
+                Navigation.findNavController(view).navigate(R.id.action_second_fragment_to_first_fragment,bundle);
             }
         });
 
